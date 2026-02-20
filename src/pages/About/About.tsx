@@ -40,12 +40,13 @@ const About = () => {
           <span>UNIFESSPA [7/8]</span>
         </div>
         <p className="text-muted-foreground text-base font-medium leading-relaxed">
-          Desenvolvedor Fullstack com foco em Engenharia de Software e
-          aplicações web escaláveis. Experiência em APIs REST (Node.js),
-          desenvolvimento de interfaces com React.js e modelagem de bancos
-          relacionais e não-relacionais. Trabalho com boas práticas de POO,
-          Clean Code, Git e integração com soluções de Inteligência Artificial e
-          Machine Learning. No meu tempo livre, gosto de explorar novas tecnologias, desenvolver projetos pessoais e jogar vôlei, se quiser saber mais sobre minha trajetória, {" "}
+          Olá! Sou estudante de Sistemas de Informação na UNIFESSPA e
+          desenvolvedor no projeto PET-Saúde: Inovação e Saúde Digital no SUS,
+          do Ministério da Saúde. Trabalho com React, Node.js e bancos
+          relacionais e não-relacionais para construir aplicações web
+          escaláveis, e também exploro soluções com Inteligência Artificial e
+          Machine Learning. No tempo livre, gosto de desenvolver projetos
+          pessoais e jogar vôlei. Se quiser conhecer mais da minha trajetória,{" "}
           <a
             className="text-foreground hover:underline hover:text-accent-foreground transition-colors"
             href="https://docs.google.com/document/d/1OHWbliyqaZnSthtppN6t3h-vpBSWAuxCJwpCXgJtsW8/export?format=pdf"
