@@ -131,6 +131,22 @@ export const arrProjects: Project[] = [
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/Portifolio_Fullstack.png",
   },
-
-
+  {
+    href: "https://michelangelo-costa.github.io/Projeto_Tradutor/",
+    linkPreview: "Projeto Tradutor",
+    name: "Projeto Tradutor",
+    desc: "Tradutor front-end com API MyMemory, suporte a reconhecimento de voz e síntese de fala.",
+    tech: ["HTML", "CSS", "JavaScript", "API"],
+    favicon: "/src/icons/favicon.ico",
+    img: "/src/projects/Projeto_Tradutor.png",
+  },
+  {
+    href: "https://michelangelo-costa.github.io/Projeto_Rocketseat/",
+    linkPreview: "DevLinks",
+    name: "DevLinks",
+    desc: "Agregador de links estilo cartão de visitas online, desenvolvido no curso da Rocketseat.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    favicon: "/src/icons/favicon.ico",
+    img: "/src/projects/Projeto_Rockeat.png",
+  },
 ];
