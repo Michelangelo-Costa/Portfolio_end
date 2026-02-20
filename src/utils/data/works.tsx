@@ -32,7 +32,7 @@ export const arrWorks: Work[] = [
   },
   {
     company: "Exception Jr",
-    role: "Full Stack Developer",
+    role: "Front-end Developer",
     duration: "11/2023 - 07/2024",
     logo: "/src/works/exceptionjr.webp",
     about:
