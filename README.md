@@ -13,11 +13,11 @@
 
 ---
 
-## Visão Geral
+## 📸 Visão Geral
 
 Site pessoal minimalista e responsivo, com tema claro/escuro, animações fluidas e navegação por rotas. Desenvolvido com foco em performance, acessibilidade e boas práticas de código.
 
-## Tecnologias
+## 🚀 Tecnologias
 
 | Categoria         | Tecnologias                          |
 | ----------------- | ------------------------------------ |
@@ -30,7 +30,7 @@ Site pessoal minimalista e responsivo, com tema claro/escuro, animações fluida
 | **Linting**       | ESLint, TypeScript ESLint            |
 | **Deploy**        | Vercel                               |
 
-## Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 ```
 src/
@@ -45,7 +45,7 @@ src/
 └── types/            # Tipagens TypeScript
 ```
 
-##  Funcionalidades
+## 📋 Funcionalidades
 
 - **Sobre** — Apresentação pessoal, habilidades técnicas, gráfico de contribuições do GitHub e experiências profissionais
 - **Projetos** — Galeria dos principais projetos com links e descrições
@@ -54,7 +54,7 @@ src/
 - **Responsivo** — Layout adaptável para mobile, tablet e desktop
 - **Animações** — Transições suaves com Motion
 
-## Como Rodar Localmente
+## ⚡ Como Rodar Localmente
 
 ```bash
 # Clone o repositório
@@ -72,7 +72,7 @@ npm run dev
 
 O projeto estará disponível em `http://localhost:5173`.
 
-##  Scripts Disponíveis
+## 📦 Scripts Disponíveis
 
 | Comando           | Descrição                            |
 | ----------------- | ------------------------------------ |
@@ -81,7 +81,7 @@ O projeto estará disponível em `http://localhost:5173`.
 | `npm run preview` | Visualiza o build localmente         |
 | `npm run lint`    | Executa o linter no projeto          |
 
-## Autor
+## 🧑‍💻 Autor
 
 **Michelangelo de Carvalho Costa**
 Desenvolvedor Fullstack · Marabá, PA · UNIFESSPA

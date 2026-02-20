@@ -45,7 +45,15 @@ const About = () => {
           desenvolvimento de interfaces com React.js e modelagem de bancos
           relacionais e não-relacionais. Trabalho com boas práticas de POO,
           Clean Code, Git e integração com soluções de Inteligência Artificial e
-          Machine Learning. No meu tempo livre, gosto de explorar novas tecnologias, desenvolver projetos pessoais e jogar vôlei Se quiser saber mais sobre minha trajetória,
+          Machine Learning. No meu tempo livre, gosto de explorar novas tecnologias, desenvolver projetos pessoais e jogar vôlei Se quiser saber mais sobre minha trajetória, {" "}
+          <a
+            className="text-foreground hover:underline hover:text-accent-foreground transition-colors"
+            href="https://docs.google.com/document/d/1OHWbliyqaZnSthtppN6t3h-vpBSWAuxCJwpCXgJtsW8/export?format=pdf"
+            download
+          >
+            veja meu currículo
+            <ExternalLinkIcon className="inline ml-0.5" />
+          </a>
         </p>
       </motion.div>
 
