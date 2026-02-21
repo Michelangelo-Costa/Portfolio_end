@@ -23,15 +23,20 @@ function WorksExperience() {
               delay: index * 0.08,
               ease: "easeOut",
             }}
-            className="flex flex-col sm:flex-row gap-2 justify-between sm:items-center cursor-pointer rounded-lg px-2 py-1.5 -mx-2 hover:bg-accent/60 transition-colors"
+            className="group flex flex-col sm:flex-row gap-2 justify-between sm:items-center cursor-pointer rounded-lg px-2 py-1.5 -mx-2 hover:bg-accent/60 transition-colors"
             key={work.company}
             onClick={() => setSelected(work)}
+            whileHover="hover"
           >
             <div className="flex gap-2 flex-col sm:flex-row">
-              <img
+              <motion.img
                 src={work.logo}
                 alt={work.company}
                 className="size-6 sm:size-10 object-cover rounded"
+                variants={{
+                  hover: { scale: 1.25, rotate: 3 },
+                }}
+                transition={{ type: "spring", stiffness: 350, damping: 15 }}
               />
               <span>
                 <div>{work.company}</div>
