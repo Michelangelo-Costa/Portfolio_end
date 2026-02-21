@@ -33,10 +33,10 @@ export const arrWorks: Work[] = [
   {
     company: "Exception Jr",
     role: "Front-end Developer",
-    duration: "11/2023 - 07/2024",
+    duration: "nov de 2023 - jul de 2024",
     logo: "/src/works/exceptionjr.webp",
     about:
-      "Na Exception, atuei como desenvolvedor fullstack, contribuindo para a criação de soluções web modernas. Minhas responsabilidades envolveram desde o desenvolvimento de interfaces responsivas até a implementação de lógicas de negócio e integrações com APIs.",
+      "Na Exception, atuei como desenvolvedor front-end, contribuindo para a criação de soluções web modernas. Minhas responsabilidades envolveram o desenvolvimento de interfaces responsivas e componentizadas.",
   },
 ];
 
