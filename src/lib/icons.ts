@@ -35,6 +35,10 @@ import {
   SiNextdotjs,
   SiPostgresql,
   SiBun,
+  SiDocker,
+  SiPython,
+  SiGit,
+  SiPrisma,
 } from "react-icons/si";
 
 import { BiLogoFigma, BiLibrary } from "react-icons/bi";
@@ -79,6 +83,10 @@ export const PostgreSQLIcon = SiPostgresql;
 export const FigmaIcon = BiLogoFigma;
 export const LibraryIcon = BiLibrary;
 export const BunIcon = SiBun;
+export const DockerIcon = SiDocker;
+export const PythonIcon = SiPython;
+export const GitIcon = SiGit;
+export const PrismaIcon = SiPrisma;
 
 // Grouped exports for easier importing
 export const NavigationIcons = {
