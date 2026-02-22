@@ -2,6 +2,17 @@ import type { Project } from "@/types";
 
 export const arrProjects: Project[] = [
   {
+    href: "https://atribunareformada.com/",
+    linkPreview: "A Tribuna Reformada",
+    name: "A Tribuna Reformada",
+    desc: "Portal de jornalismo cristão reformado com autenticação, assinatura de conteúdo exclusivo, painel admin e integração com MercadoPago.",
+    tech: ["React", "Vite", "Tailwind", "Supabase", "MercadoPago"],
+    favicon: "/src/icons/favicon.ico",
+    img: "/src/projects/Tribuna.png",
+    featured: true,
+    complexity: "complex",
+  },
+  {
     href: "https://michelangelo-costa.github.io/Portfolio-Styling/",
     linkPreview: "Portfolio-web",
     name: "Portfolio Pessoal",
@@ -9,7 +20,7 @@ export const arrProjects: Project[] = [
     tech: ["HTML", "CSS", "JavaScript", "Responsivo"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/logo_portfolio.png",
-    featured: true,
+    complexity: "simple",
   },
   {
     href: "https://michelangelo-costa.github.io/unidade1/",
@@ -19,6 +30,7 @@ export const arrProjects: Project[] = [
     tech: ["HTML", "CSS", "Layout"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/logo_receitas.png",
+    complexity: "simple",
   },
   {
     href: "https://michelangelo-costa.github.io/perfil-viagens/",
@@ -28,6 +40,7 @@ export const arrProjects: Project[] = [
     tech: ["HTML", "CSS", "Grid"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/logo_Perfil-viagens.png",
+    complexity: "simple",
   },
   {
     href: "https://michelangelo-costa.github.io/formulario/",
@@ -37,6 +50,7 @@ export const arrProjects: Project[] = [
     tech: ["HTML", "CSS", "Forms"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/logo_Form.png",
+    complexity: "simple",
   },
   {
     href: "https://michelangelo-costa.github.io/exercicio-news/",
@@ -46,6 +60,7 @@ export const arrProjects: Project[] = [
     tech: ["HTML", "CSS", "Grid"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/logo_Tech-News.png",
+    complexity: "simple",
   },
   {
     href: "https://michelangelo-costa.github.io/Corte-Cabelo/",
@@ -55,6 +70,7 @@ export const arrProjects: Project[] = [
     tech: ["JavaScript", "API"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/logo_hair day.png",
+    complexity: "complex",
   },
   {
     href: "https://gymplanner-five.vercel.app/",
@@ -65,6 +81,7 @@ export const arrProjects: Project[] = [
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/GymPlanner_Fullstack.png",
     featured: true,
+    complexity: "complex",
   },
   {
     href: "https://github.com/Michelangelo-Costa/heart-disease-severity-ml/blob/main/Trabalho_Final_muilti_class.ipynb",
@@ -75,6 +92,7 @@ export const arrProjects: Project[] = [
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/logo_classificacao_doenca_cardiaca.png",
     featured: true,
+    complexity: "complex",
   },
   {
     href: "https://github.com/Michelangelo-Costa/deploy-node-app",
@@ -84,6 +102,7 @@ export const arrProjects: Project[] = [
     tech: ["Docker", "Kubernetes", "CI/CD"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/logo_kind.png",
+    complexity: "complex",
   },
   {
     href: "https://michelangelo-costa.github.io/Pagina-de-Login/",
@@ -93,6 +112,7 @@ export const arrProjects: Project[] = [
     tech: ["HTML", "CSS", "JavaScript"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/logo_Vertigo.png",
+    complexity: "simple",
   },
   {
     href: "https://michelangelo-costa.github.io/conversor-moedas/",
@@ -102,6 +122,7 @@ export const arrProjects: Project[] = [
     tech: ["JavaScript", "API"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/logo_moedas.png",
+    complexity: "complex",
   },
   {
     href: "https://michelangelo-costa.github.io/Projeto-Rembolso/",
@@ -111,6 +132,7 @@ export const arrProjects: Project[] = [
     tech: ["JavaScript", "DOM"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/Projeto_Rembolso.png",
+    complexity: "simple",
   },
   {
     href: "https://michelangelo-costa.github.io/Lista-Compras/",
@@ -120,16 +142,17 @@ export const arrProjects: Project[] = [
     tech: ["JavaScript", "CRUD", "LocalStorage"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/logo_compras.png",
+    complexity: "simple",
   },
-
   {
     href: "https://michelangelo-costa.github.io/portfolio/",
     linkPreview: "Portifolio_Fullstack",
     name: "Portifolio Fullstack",
     desc: "Portifolio completo com tecnologias frontend.",
-    tech: ["HTML", "CSS", "JavaScript", "React"],
+    tech: ["HTML", "CSS", "JavaScript"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/Portifolio_Fullstack.png",
+    complexity: "complex",
   },
   {
     href: "https://michelangelo-costa.github.io/Projeto_Tradutor/",
@@ -139,6 +162,7 @@ export const arrProjects: Project[] = [
     tech: ["HTML", "CSS", "JavaScript", "API"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/Projeto_Tradutor.png",
+    complexity: "complex",
   },
   {
     href: "https://michelangelo-costa.github.io/Projeto_Rocketseat/",
@@ -148,5 +172,6 @@ export const arrProjects: Project[] = [
     tech: ["HTML", "CSS", "JavaScript"],
     favicon: "/src/icons/favicon.ico",
     img: "/src/projects/Projeto_Rockeat.png",
+    complexity: "simple",
   },
 ];
