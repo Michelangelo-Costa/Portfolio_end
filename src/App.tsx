@@ -3,13 +3,23 @@ import About from "./pages/About/About";
 import Projects from "./pages/Projects/Projects";
 import Certificates from "./pages/Certificates/Certificates";
 
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
+import { useEffect } from "react";
 import NotFound from "./components/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const App = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
       <Header />
       <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 py-8">
         <Routes>
