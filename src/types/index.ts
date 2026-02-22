@@ -10,6 +10,7 @@ export interface Project {
   img?: string;
   favicon?: string;
   featured?: boolean;
+  complexity?: "simple" | "complex";
 }
 
 export interface Work {
