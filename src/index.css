@@ -6,161 +6,161 @@
 @plugin "@tailwindcss/typography";
 
 @layer base {
-    * {
-        @apply border-border outline-0;
-    }
+  * {
+    @apply border-border outline-0;
+  }
 
-    html {
-        overflow-y: scroll !important;
-        padding-right: 0px !important;
-    }
+  html {
+    overflow-y: scroll !important;
+    padding-right: 0px !important;
+  }
 
-    body {
-        font-family: "Geist", sans-serif;
-    }
+  body {
+    font-family: "Inter", sans-serif;
+  }
 }
 
 @layer utilities {
-    .scrollbar {
-        overflow-y: auto;
-        scrollbar-width: thin;
-        scrollbar-color: var(--border) transparent;
-    }
+  .scrollbar {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
 
-    .scrollbar::-webkit-scrollbar {
-        width: 6px !important;
-        height: 6px !important;
-        display: block !important;
-    }
+  .scrollbar::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+    display: block !important;
+  }
 
-    .scrollbar::-webkit-scrollbar-thumb {
-        background: var(--border) !important;
-        border-radius: 6px !important;
-    }
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: var(--border) !important;
+    border-radius: 6px !important;
+  }
 
-    .scrollbar::-webkit-scrollbar-track {
-        background: transparent !important;
-    }
+  .scrollbar::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
 
-    .scrollbar-container {
-        position: relative;
-        background-color: var(--popover);
-        height: auto;
-        max-height: 40vh;
-    }
+  .scrollbar-container {
+    position: relative;
+    background-color: var(--popover);
+    height: auto;
+    max-height: 40vh;
+  }
 
-    .scrollbar-content {
-        overflow-y: auto;
-        height: 100%;
-        max-height: inherit;
-    }
+  .scrollbar-content {
+    overflow-y: auto;
+    height: 100%;
+    max-height: inherit;
+  }
 
-    .scrollbar-content::-webkit-scrollbar {
-        width: 6px;
-        display: block !important;
-    }
+  .scrollbar-content::-webkit-scrollbar {
+    width: 6px;
+    display: block !important;
+  }
 
-    .scrollbar-content::-webkit-scrollbar-thumb {
-        background: var(--border);
-        border-radius: 6px;
-    }
+  .scrollbar-content::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 6px;
+  }
 }
 
 @layer components {
-    .heading-link {
-        position: relative;
-    }
+  .heading-link {
+    position: relative;
+  }
 
-    .heading-link::before {
-        font-family: monospace;
-        font-weight: 100;
-        content: "#";
-        position: absolute;
-        opacity: 0;
-        transition: opacity 0.2s;
-        color: var(--muted-foreground);
-    }
+  .heading-link::before {
+    font-family: monospace;
+    font-weight: 100;
+    content: "#";
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.2s;
+    color: var(--muted-foreground);
+  }
 
-    h1 .heading-link::before {
-        left: -1.4rem;
-    }
+  h1 .heading-link::before {
+    left: -1.4rem;
+  }
 
-    h2 .heading-link::before {
-        left: -1.2rem;
-    }
+  h2 .heading-link::before {
+    left: -1.2rem;
+  }
 
-    h3 .heading-link::before {
-        left: -1.2rem;
-    }
+  h3 .heading-link::before {
+    left: -1.2rem;
+  }
 
-    h4 .heading-link::before {
-        left: -1rem;
-    }
+  h4 .heading-link::before {
+    left: -1rem;
+  }
 
-    .heading-link:hover::before {
-        opacity: 0.6;
-    }
+  .heading-link:hover::before {
+    opacity: 0.6;
+  }
 
-    .prose-content {
-        line-height: 1.7;
-    }
+  .prose-content {
+    line-height: 1.7;
+  }
 
-    .prose-content p {
-        margin-bottom: 1rem;
-        line-height: 1.7;
-    }
+  .prose-content p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
 
-    .prose-content ul,
-    .prose-content ol {
-        margin-bottom: 1rem;
-        padding-left: 1.5rem;
-    }
+  .prose-content ul,
+  .prose-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
 
-    .prose-content li {
-        margin-bottom: 0.25rem;
-        line-height: 1.6;
-    }
+  .prose-content li {
+    margin-bottom: 0.25rem;
+    line-height: 1.6;
+  }
 
-    .prose-content blockquote {
-        margin: 1.5rem 0;
-        padding: 1rem 1.25rem;
-        border-left: 4px solid var(--border);
-        background-color: var(--muted);
-        font-style: italic;
-    }
+  .prose-content blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-left: 4px solid var(--border);
+    background-color: var(--muted);
+    font-style: italic;
+  }
 
-    .prose-content code {
-        padding: 0.125rem 0.25rem;
-        background-color: var(--muted);
-        border-radius: 0.25rem;
-        font-size: 0.875rem;
-    }
+  .prose-content code {
+    padding: 0.125rem 0.25rem;
+    background-color: var(--muted);
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+  }
 
-    .prose-content pre {
-        margin: 1.5rem 0;
-        border-radius: 0.5rem;
-        overflow-x: auto;
-    }
+  .prose-content pre {
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+  }
 
-    .prose-content > * + * {
-        margin-top: 1rem;
-    }
+  .prose-content > * + * {
+    margin-top: 1rem;
+  }
 
-    .prose-content > h1 + *,
-    .prose-content > h2 + *,
-    .prose-content > h3 + *,
-    .prose-content > h4 + * {
-        margin-top: 0.5rem;
-    }
+  .prose-content > h1 + *,
+  .prose-content > h2 + *,
+  .prose-content > h3 + *,
+  .prose-content > h4 + * {
+    margin-top: 0.5rem;
+  }
 
-    [data-slot="dialog-overlay"] {
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        background-color: rgba(0, 0, 0, 0.4) !important;
-        transition:
-            backdrop-filter 0.2s ease,
-            background-color 0.2s ease;
-    }
+  [data-slot="dialog-overlay"] {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    transition:
+      backdrop-filter 0.2s ease,
+      background-color 0.2s ease;
+  }
 }
 
 /* ::selection {
