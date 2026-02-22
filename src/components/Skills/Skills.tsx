@@ -1,38 +1,48 @@
-import { arrSkills } from "@/utils/data/works";
-import { LibraryIcon } from "@/lib/icons";
+import { skillCategories } from "@/utils/data/works";
 import { motion } from "motion/react";
 
-import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-
 function Skills() {
+  let globalIndex = 0;
+
   return (
-    <div className="mb-4 flex flex-col">
-      <div className="flex items-center gap-2 text-foreground justify-between">
-        <h2 className="text-base font-semibold">Skills</h2>
-        <LibraryIcon className="text-base text-muted-foreground" />
-      </div>
-      <div className="mt-2 flex flex-wrap gap-2 sm:justify-center">
-        {arrSkills.map((Skill, index) => (
-          <Tooltip key={index}>
-            <TooltipTrigger>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.3,
-                  delay: index * 0.04,
-                  ease: "easeOut",
-                }}
-                className="p-2 rounded border text-foreground hover:text-muted-foreground"
-              >
-                <Skill.icon className="size-5" />
-              </motion.div>
-            </TooltipTrigger>
-            <TooltipContent className="rounded">{Skill.name}</TooltipContent>
-          </Tooltip>
+    <section className="py-8">
+      <h2 className="text-2xl font-bold text-foreground mb-6">
+        Competências Técnicas
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skillCategories.map((category) => (
+          <div key={category.label}>
+            <h3 className="text-xs font-semibold text-primary uppercase tracking-widest mb-3">
+              {category.label}
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {category.skills.map((skill) => {
+                const idx = globalIndex++;
+                return (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.25,
+                      delay: idx * 0.04,
+                      ease: "easeOut",
+                    }}
+                    className="flex items-center gap-2 px-3 py-2 bg-card border border-border rounded-lg
+                      hover:border-primary/40 hover:shadow-sm transition-all duration-200 group"
+                  >
+                    <skill.icon className="size-3.5 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-xs font-medium text-foreground">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
