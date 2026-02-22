@@ -11,6 +11,10 @@ import {
   NextJSIcon,
   PostgreSQLIcon,
   FigmaIcon,
+  DockerIcon,
+  PythonIcon,
+  GitIcon,
+  PrismaIcon,
 } from "@/lib/icons";
 
 export const arrWorks: Work[] = [
@@ -45,15 +49,50 @@ type SkillType = {
   name: string;
 };
 
-export const arrSkills: SkillType[] = [
-  { icon: ReactIcon, name: "React" },
-  { icon: ViteIcon, name: "Vite" },
-  { icon: NextJSIcon, name: "Next.js" },
-  { icon: TypeScriptIcon, name: "TypeScript" },
-  { icon: JavaScriptIcon, name: "JavaScript" },
-  { icon: TailwindIcon, name: "Tailwind CSS" },
-  { icon: ExpressIcon, name: "Express" },
-  { icon: NodeIcon, name: "Node.js" },
-  { icon: PostgreSQLIcon, name: "PostgreSQL" },
-  { icon: FigmaIcon, name: "Figma" },
+export type SkillCategory = {
+  label: string;
+  skills: SkillType[];
+};
+
+export const skillCategories: SkillCategory[] = [
+  {
+    label: "Linguagens",
+    skills: [
+      { icon: TypeScriptIcon, name: "TypeScript" },
+      { icon: JavaScriptIcon, name: "JavaScript" },
+      { icon: PythonIcon, name: "Python" },
+    ],
+  },
+  {
+    label: "Frontend",
+    skills: [
+      { icon: ReactIcon, name: "React" },
+      { icon: NextJSIcon, name: "Next.js" },
+      { icon: ViteIcon, name: "Vite" },
+      { icon: TailwindIcon, name: "Tailwind CSS" },
+    ],
+  },
+  {
+    label: "Backend",
+    skills: [
+      { icon: NodeIcon, name: "Node.js" },
+      { icon: ExpressIcon, name: "Express" },
+      { icon: PrismaIcon, name: "Prisma" },
+    ],
+  },
+  {
+    label: "Banco de Dados",
+    skills: [{ icon: PostgreSQLIcon, name: "PostgreSQL" }],
+  },
+  {
+    label: "DevOps & Ferramentas",
+    skills: [
+      { icon: DockerIcon, name: "Docker" },
+      { icon: GitIcon, name: "Git" },
+      { icon: FigmaIcon, name: "Figma" },
+    ],
+  },
 ];
+
+// Mantido para compatibilidade
+export const arrSkills: SkillType[] = skillCategories.flatMap((c) => c.skills);
