@@ -2,11 +2,13 @@ import Header from "./components/Header/Header";
 import About from "./pages/About/About";
 import Projects from "./pages/Projects/Projects";
 import Certificates from "./pages/Certificates/Certificates";
+import Contact from "./pages/Contact/Contact";
 
 import { Routes, Route, useLocation } from "react-router";
 import { useEffect } from "react";
 import NotFound from "./components/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
+import BackToTop from "./components/BackToTop/BackToTop";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -26,10 +28,12 @@ const App = () => {
           <Route path="/" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/certificates" element={<Certificates />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };
