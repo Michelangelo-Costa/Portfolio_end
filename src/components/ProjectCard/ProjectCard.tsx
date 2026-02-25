@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { ProjectCardProps } from "@/types";
 import { ExternalLinkIcon } from "@/lib/icons";
 
@@ -8,23 +9,39 @@ const ProjectCard = ({
   tech = [],
   img,
   linkPreview,
+  featured,
 }: ProjectCardProps) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <a
       href={href}
       className="group block h-full rounded-xl border border-border bg-card overflow-hidden
-        hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+        hover:border-primary/40 hover:shadow-xl hover:-translate-y-1
+        hover:ring-1 hover:ring-primary/20 transition-all duration-300"
       rel="noreferrer noopener"
       target="_blank"
     >
       {img && (
         <div className="relative overflow-hidden aspect-video bg-muted">
+          {!imageLoaded && (
+            <div className="absolute inset-0 bg-muted animate-pulse" />
+          )}
           <img
             src={img}
             alt={name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            onLoad={() => setImageLoaded(true)}
+            className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${
+              imageLoaded ? "opacity-100" : "opacity-0"
+            }`}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {featured && (
+            <div className="absolute top-3 left-3 flex items-center gap-1 px-2.5 py-1 text-xs font-bold
+              bg-primary text-primary-foreground rounded-full shadow-md">
+              ★ Destaque
+            </div>
+          )}
         </div>
       )}
 
