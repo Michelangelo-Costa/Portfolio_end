@@ -7,9 +7,17 @@ import WorksExperience from "@/components/WorksExperience/WorksExperience";
 import Skills from "@/components/Skills/Skills";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import { arrProjects } from "@/utils/data/projects";
+import useTypingAnimation from "@/hooks/useTypingAnimation";
+
+const TYPING_TEXTS = [
+  "Desenvolvedor Full Stack",
+  "Estudante de Sistemas de Informação",
+  "Apaixonado por tecnologia",
+];
 
 const About = () => {
   const featuredProjects = arrProjects.filter((p) => p.featured);
+  const typedText = useTypingAnimation(TYPING_TEXTS);
 
   return (
     <div className="text-foreground">
@@ -34,9 +42,14 @@ const About = () => {
             <div className="absolute bottom-1 right-1 size-5 bg-green-500 rounded-full border-2 border-background" />
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-bold mb-3 tracking-tight text-center">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2 tracking-tight text-center">
             Michelangelo Costa
           </h1>
+
+          <p className="text-base text-primary font-medium mb-3 h-6 text-center">
+            {typedText}
+            <span className="animate-pulse">|</span>
+          </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground mb-5">
             <span className="px-3 py-1 bg-primary/10 text-primary font-medium rounded-full text-xs">
@@ -63,8 +76,8 @@ const About = () => {
           <a
             className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground font-medium rounded-lg
               hover:opacity-90 transition-opacity text-sm"
-            href="https://docs.google.com/document/d/1OHWbliyqaZnSthtppN6t3h-vpBSWAuxCJwpCXgJtsW8/export?format=pdf"
-            download
+            href="/Curriculo_Mike.pdf"
+            download="Curriculo_Michelangelo_Costa.pdf"
           >
             Baixar currículo
             <ExternalLinkIcon className="size-3.5" />
@@ -75,8 +88,9 @@ const About = () => {
       {/* Skills */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.1 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
       >
         <Skills />
       </motion.div>
@@ -84,8 +98,9 @@ const About = () => {
       {/* Experience */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
       >
         <WorksExperience />
       </motion.div>
@@ -93,8 +108,9 @@ const About = () => {
       {/* Featured Projects */}
       <motion.section
         initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.3 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
         className="py-8"
       >
         <div className="flex items-center justify-between mb-6">
