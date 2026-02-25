@@ -21,7 +21,8 @@ function WorksExperience() {
             <motion.div
               key={work.company}
               initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{
                 duration: 0.4,
                 delay: index * 0.1,
