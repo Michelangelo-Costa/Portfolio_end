@@ -7,6 +7,7 @@ const navItems = [
   { title: "Início", to: "/" },
   { title: "Projetos", to: "/projects" },
   { title: "Certificados", to: "/certificates" },
+  { title: "Contato", to: "/contact" },
 ];
 
 const Header = () => {
