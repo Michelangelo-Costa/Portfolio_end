@@ -42,8 +42,8 @@ const Footer = () => {
                 Certificados
               </Link>
               <a
-                href="https://docs.google.com/document/d/1OHWbliyqaZnSthtppN6t3h-vpBSWAuxCJwpCXgJtsW8/export?format=pdf"
-                download
+                href="/Curriculo_Mike.pdf"
+                download="Curriculo_Michelangelo_Costa.pdf"
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 Currículo
