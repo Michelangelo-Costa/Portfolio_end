@@ -25,6 +25,7 @@ export interface Certificate {
   href: string;
   course: string;
   teacher: string;
+  tags?: string[];
 }
 
 export interface BlogPost {
