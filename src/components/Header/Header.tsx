@@ -15,13 +15,23 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="max-w-5xl mx-auto flex items-center justify-between px-4 sm:px-6 h-16">
+      <div className="max-w-5xl mx-auto flex items-center justify-between px-4 sm:px-6 h-20">
         {/* Logo / Name */}
         <Link
           to="/"
-          className="text-lg font-bold tracking-tight text-foreground hover:text-primary transition-colors"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
-          M<span className="text-primary">.</span>Costa
+          <img
+            src="/src/icons/turtle.png"
+            alt="Logo"
+            className="h-10 w-10 object-contain"
+          />
+          <span
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-lg font-semibold tracking-tight text-foreground"
+          >
+            M<span className="text-primary">.</span>Costa
+          </span>
         </Link>
 
         {/* Desktop Nav */}
