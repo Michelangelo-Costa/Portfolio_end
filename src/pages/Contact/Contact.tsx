@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PageTitle from "@/components/PageTitle/PageTitle";
-import { GithubIcon, LinkedinIcon, MailIcon } from "@/lib/icons";
+import { GithubIcon, LinkedinIcon, MailIcon, PhoneIcon } from "@/lib/icons";
 import { motion } from "motion/react";
 
 const socialLinks = [
@@ -21,6 +21,12 @@ const socialLinks = [
     value: "michelangeloed@gmail.com",
     href: "mailto:michelangeloed@gmail.com",
     icon: MailIcon,
+  },
+  {
+    label: "Telefone",
+    value: "(99) 98466-6698",
+    href: "",
+    icon: PhoneIcon,
   },
 ];
 
@@ -65,12 +71,19 @@ const Contact = () => {
         >
           <h2 className="text-lg font-semibold mb-4">Redes sociais</h2>
           <div className="space-y-3">
-            {socialLinks.map((link, index) => (
-              <motion.a
+            {socialLinks.map((link, index) => {
+              const Wrapper = link.href ? motion.a : motion.div;
+              const wrapperProps = link.href
+                ? {
+                    href: link.href,
+                    target: link.href.startsWith("mailto") ? undefined : "_blank",
+                    rel: "noreferrer noopener",
+                  }
+                : {};
+              return (
+              <Wrapper
                 key={link.label}
-                href={link.href}
-                target={link.href.startsWith("mailto") ? undefined : "_blank"}
-                rel="noreferrer noopener"
+                {...wrapperProps}
                 initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: 0.15 + index * 0.07 }}
@@ -88,8 +101,9 @@ const Contact = () => {
                     {link.value}
                   </p>
                 </div>
-              </motion.a>
-            ))}
+              </Wrapper>
+              );
+            })}
           </div>
         </motion.div>
 

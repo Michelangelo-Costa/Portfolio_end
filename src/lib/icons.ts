@@ -16,7 +16,7 @@ import {
   RxDownload,
 } from "react-icons/rx";
 
-import { LuSlash, LuMoon, LuSun, LuMail } from "react-icons/lu";
+import { LuSlash, LuMoon, LuSun, LuMail, LuPhone } from "react-icons/lu";
 
 import {
   VscTwitter,
@@ -55,6 +55,7 @@ export const BookmarkIcon = RxBookmark;
 export const LayersIcon = RxLayers;
 export const RocketIcon = RxRocket;
 export const MailIcon = LuMail;
+export const PhoneIcon = LuPhone;
 export const SlashIcon = LuSlash;
 export const SideBarOffIcon = VscLayoutSidebarRightOff;
 export const SideBarIcon = VscLayoutSidebarRight;
