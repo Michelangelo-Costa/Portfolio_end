@@ -51,4 +51,10 @@ export const arrCertificates: Certificate[] = [
     teacher: "UNIFESSPA",
     tags: ["Hardware", "Acadêmico"],
   },
+  {
+    href: "/src/certs/Html e CSS para iniciantes.pdf",
+    course: "HTML e CSS para Iniciantes",
+    teacher: "Origamid",
+    tags: ["Programação", "Web"],
+  },
 ];
