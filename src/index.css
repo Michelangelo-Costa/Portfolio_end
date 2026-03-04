@@ -11,12 +11,12 @@
   }
 
   html {
-    overflow-y: scroll !important;
-    padding-right: 0px !important;
+    scrollbar-gutter: stable;
   }
 
   body {
     font-family: "Inter", sans-serif;
+    overflow-x: hidden;
   }
 }
 
