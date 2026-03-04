@@ -1,6 +1,7 @@
 import Header from "./components/Header/Header";
 import About from "./pages/About/About";
 import Projects from "./pages/Projects/Projects";
+import ProjectDetail from "./pages/ProjectDetail/ProjectDetail";
 import Certificates from "./pages/Certificates/Certificates";
 import Contact from "./pages/Contact/Contact";
 
@@ -27,6 +28,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<About />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/certificates" element={<Certificates />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
