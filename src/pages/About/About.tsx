@@ -7,6 +7,7 @@ import WorksExperience from "@/components/WorksExperience/WorksExperience";
 import Skills from "@/components/Skills/Skills";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import { arrProjects } from "@/utils/data/projects";
+import { arrEducation, currentlyLearning } from "@/utils/data/works";
 import useTypingAnimation from "@/hooks/useTypingAnimation";
 
 const TYPING_TEXTS = [
@@ -95,6 +96,36 @@ const About = () => {
         <Skills />
       </motion.div>
 
+      {/* Currently Learning */}
+      <motion.section
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+        className="py-8 border-t border-border"
+      >
+        <h2 className="text-2xl font-bold mb-2">Atualmente Aprendendo</h2>
+        <p className="text-muted-foreground text-sm mb-5">
+          Tecnologias e conceitos que estou estudando agora.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {currentlyLearning.map((topic, i) => (
+            <motion.span
+              key={topic}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.07 }}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-card
+                text-sm font-medium text-foreground"
+            >
+              <span className="size-1.5 rounded-full bg-primary animate-pulse" />
+              {topic}
+            </motion.span>
+          ))}
+        </div>
+      </motion.section>
+
       {/* Experience */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
@@ -104,6 +135,54 @@ const About = () => {
       >
         <WorksExperience />
       </motion.div>
+
+      {/* Education */}
+      <motion.section
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+        className="py-8 border-t border-border"
+      >
+        <h2 className="text-2xl font-bold mb-6">Formação Acadêmica</h2>
+        <div className="space-y-4">
+          {arrEducation.map((edu, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -12 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: i * 0.08 }}
+              className="flex items-start gap-4 p-5 rounded-xl border border-border bg-card
+                hover:border-primary/30 hover:shadow-sm transition-all duration-200"
+            >
+              <div className="flex-shrink-0 size-12 rounded-lg overflow-hidden border border-border bg-muted">
+                <img
+                  src={edu.logo}
+                  alt={edu.institution}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-start justify-between gap-2 flex-wrap">
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground">{edu.degree}</h3>
+                    <p className="text-xs text-primary font-medium mt-0.5">{edu.institution}</p>
+                  </div>
+                  <span className="text-xs text-muted-foreground bg-muted px-2.5 py-1 rounded-full flex-shrink-0">
+                    {edu.duration}
+                  </span>
+                </div>
+                {edu.description && (
+                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                    {edu.description}
+                  </p>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
 
       {/* Featured Projects */}
       <motion.section
@@ -127,8 +206,8 @@ const About = () => {
           {featuredProjects.slice(0, 3).map((project, index) => (
             <ProjectCard
               key={index}
-              linkPreview={project.linkPreview}
               href={project.href}
+              slug={project.slug}
               name={project.name}
               desc={project.desc}
               tech={project.tech.slice(0, 3)}
