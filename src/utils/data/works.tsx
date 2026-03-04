@@ -1,4 +1,4 @@
-import type { Work } from "@/types";
+import type { Work, Education } from "@/types";
 import {
   type IconType,
   ReactIcon,
@@ -96,3 +96,21 @@ export const skillCategories: SkillCategory[] = [
 
 // Mantido para compatibilidade
 export const arrSkills: SkillType[] = skillCategories.flatMap((c) => c.skills);
+
+export const arrEducation: Education[] = [
+  {
+    institution: "UNIFESSPA",
+    degree: "Bacharelado em Sistemas de Informação",
+    duration: "2023 — Presente",
+    logo: "/src/works/Logo_Unifesspa.png",
+    description:
+      "Universidade Federal do Sul e Sudeste do Pará. Cursando Sistemas de Informação com foco em desenvolvimento de software, algoritmos, banco de dados e engenharia de software.",
+  },
+];
+
+export const currentlyLearning: string[] = [
+  "Next.js App Router",
+  "Testes com Vitest & Testing Library",
+  "AWS Cloud Foundations",
+  "SQL avançado & Performance",
+];
