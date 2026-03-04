@@ -13,7 +13,7 @@ import useTypingAnimation from "@/hooks/useTypingAnimation";
 const TYPING_TEXTS = [
   "Desenvolvedor Full Stack",
   "Estudante de Sistemas de Informação",
-  "Apaixonado por tecnologia",
+  "Buscando Sempre Evoluir",
 ];
 
 const About = () => {
@@ -47,7 +47,7 @@ const About = () => {
             Michelangelo Costa
           </h1>
 
-          <p className="text-base text-primary font-medium mb-3 h-6 text-center">
+          <p className="text-sm sm:text-base text-primary font-medium mb-3 min-h-6 text-center leading-6">
             {typedText}
             <span className="animate-pulse">|</span>
           </p>
