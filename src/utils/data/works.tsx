@@ -29,19 +29,11 @@ import {
 export const arrWorks: Work[] = [
   {
     company: "PET-Saúde: Inovação e Saúde Digital no SUS",
-    role: "Developer",
+    role: "Full Stack Developer",
     duration: "2025 - Presente",
     logo: "/src/works/petsaude.webp",
     about:
       "Desenvolvedor no PET-Saúde/I&SD, programa em parceria entre a UNIFESSPA e o Ministério da Saúde, com foco na transformação digital do SUS, participando de iniciativas de inovação e desenvolvimento de soluções para a saúde pública.",
-  },
-  {
-    company: "Doutor PC",
-    role: "Suporte de T.I (Estágio)",
-    duration: "mai de 2025 - set de 2025",
-    logo: "/src/works/doutorpc_logo.jpg",
-    about:
-      "Estágio em Suporte de T.I — triagem e diagnóstico de incidentes de hardware e software; atendimento técnico e suporte ao usuário.",
   },
   {
     company: "Exception Jr",
@@ -50,6 +42,14 @@ export const arrWorks: Work[] = [
     logo: "/src/works/exceptionjr.webp",
     about:
       "Na Exception, atuei como desenvolvedor front-end, contribuindo para a criação de soluções web modernas. Minhas responsabilidades envolveram o desenvolvimento de interfaces responsivas e componentizadas.",
+  },
+  {
+    company: "Doutor PC",
+    role: "Suporte de T.I (Estágio)",
+    duration: "mai de 2025 - set de 2025",
+    logo: "/src/works/doutorpc_logo.jpg",
+    about:
+      "Estágio em Suporte de T.I — triagem e diagnóstico de incidentes de hardware e software; atendimento técnico e suporte ao usuário.",
   },
 ];
 
