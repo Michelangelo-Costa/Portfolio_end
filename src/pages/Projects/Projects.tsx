@@ -22,7 +22,10 @@ const Projects = () => {
 
   const filteredProjects =
     activeFilter === "all"
-      ? arrProjects
+      ? [...arrProjects].sort((a, b) => {
+          if (a.complexity === b.complexity) return 0;
+          return a.complexity === "complex" ? -1 : 1;
+        })
       : arrProjects.filter((p) => p.complexity === activeFilter);
 
   const heroProject = activeFilter === "all" && filteredProjects[0]?.featured ? filteredProjects[0] : null;
