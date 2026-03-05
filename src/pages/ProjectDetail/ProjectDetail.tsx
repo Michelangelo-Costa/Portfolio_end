@@ -77,7 +77,19 @@ const ProjectDetail = () => {
                   bg-card hover:border-primary/40 hover:text-primary transition-all duration-200 text-sm font-medium"
               >
                 <GithubIcon className="size-4" />
-                GitHub
+                {project.githubBack ? "GitHub (Front)" : "GitHub"}
+              </a>
+            )}
+            {project.githubBack && (
+              <a
+                href={project.githubBack}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border
+                  bg-card hover:border-primary/40 hover:text-primary transition-all duration-200 text-sm font-medium"
+              >
+                <GithubIcon className="size-4" />
+                GitHub (API)
               </a>
             )}
             <a
