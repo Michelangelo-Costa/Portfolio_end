@@ -11,6 +11,7 @@ export interface Project {
   challenges?: string[];
   learnings?: string[];
   github?: string;
+  githubBack?: string;
   tech: string[];
   img?: string;
   favicon?: string;
