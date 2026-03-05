@@ -15,6 +15,15 @@ import {
   PythonIcon,
   GitIcon,
   PrismaIcon,
+  HTML5Icon,
+  CSS3Icon,
+  FastifyIcon,
+  JWTIcon,
+  MongoDBIcon,
+  MySQLIcon,
+  LinuxIcon,
+  SwaggerIcon,
+  InsomniaIcon,
 } from "@/lib/icons";
 
 export const arrWorks: Work[] = [
@@ -66,6 +75,8 @@ export const skillCategories: SkillCategory[] = [
   {
     label: "Frontend",
     skills: [
+      { icon: HTML5Icon, name: "HTML5" },
+      { icon: CSS3Icon, name: "CSS3" },
       { icon: ReactIcon, name: "React" },
       { icon: NextJSIcon, name: "Next.js" },
       { icon: ViteIcon, name: "Vite" },
@@ -77,18 +88,27 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { icon: NodeIcon, name: "Node.js" },
       { icon: ExpressIcon, name: "Express" },
+      { icon: FastifyIcon, name: "Fastify" },
       { icon: PrismaIcon, name: "Prisma" },
+      { icon: JWTIcon, name: "JWT" },
     ],
   },
   {
     label: "Banco de Dados",
-    skills: [{ icon: PostgreSQLIcon, name: "PostgreSQL" }],
+    skills: [
+      { icon: PostgreSQLIcon, name: "PostgreSQL" },
+      { icon: MongoDBIcon, name: "MongoDB" },
+      { icon: MySQLIcon, name: "MySQL" },
+    ],
   },
   {
     label: "DevOps & Ferramentas",
     skills: [
       { icon: DockerIcon, name: "Docker" },
       { icon: GitIcon, name: "Git" },
+      { icon: LinuxIcon, name: "Linux" },
+      { icon: SwaggerIcon, name: "Swagger" },
+      { icon: InsomniaIcon, name: "Insomnia" },
       { icon: FigmaIcon, name: "Figma" },
     ],
   },
