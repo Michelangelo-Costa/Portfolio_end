@@ -39,6 +39,15 @@ import {
   SiPython,
   SiGit,
   SiPrisma,
+  SiHtml5,
+  SiCss3,
+  SiFastify,
+  SiJsonwebtokens,
+  SiMongodb,
+  SiMysql,
+  SiLinux,
+  SiSwagger,
+  SiInsomnia,
 } from "react-icons/si";
 
 import { BiLogoFigma, BiLibrary } from "react-icons/bi";
@@ -88,6 +97,15 @@ export const DockerIcon = SiDocker;
 export const PythonIcon = SiPython;
 export const GitIcon = SiGit;
 export const PrismaIcon = SiPrisma;
+export const HTML5Icon = SiHtml5;
+export const CSS3Icon = SiCss3;
+export const FastifyIcon = SiFastify;
+export const JWTIcon = SiJsonwebtokens;
+export const MongoDBIcon = SiMongodb;
+export const MySQLIcon = SiMysql;
+export const LinuxIcon = SiLinux;
+export const SwaggerIcon = SiSwagger;
+export const InsomniaIcon = SiInsomnia;
 
 // Grouped exports for easier importing
 export const NavigationIcons = {
