@@ -2,7 +2,7 @@ import { AnchorHTMLAttributes } from "react";
 import type { IconType } from "@/lib/icons";
 
 export interface Project {
-  href: string;
+  href?: string;
   linkPreview?: string;
   name: string;
   slug: string;
@@ -59,7 +59,7 @@ export interface Page {
 }
 
 export interface ProjectCardProps {
-  href: string;
+  href?: string;
   linkPreview?: string;
   name: string;
   slug: string;
