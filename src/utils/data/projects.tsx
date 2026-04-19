@@ -54,6 +54,52 @@ export const arrProjects: Project[] = [
     complexity: "complex",
   },
   {
+    href: "https://pokeexplorer-siapesq.vercel.app/",
+    linkPreview: "pokeexplorer-siapesq.vercel.app",
+    name: "PokéExplorer",
+    slug: "pokeexplorer",
+    desc: "Aplicação web para explorar o universo Pokémon — Pokédex com busca em tempo real, paginação, autenticação JWT e design responsivo.",
+    longDesc:
+      "Aplicação que consome a PokéAPI em tempo real e exibe uma Pokédex completa com busca, paginação e cards detalhados (tipos, stats, altura e peso). Construída com Next.js App Router e API Routes para autenticação segura via JWT + bcryptjs, sem dependência de backend externo. Conta com sistema de login e registro, navbar dinâmica com estado do usuário, loading states e animações suaves.",
+    challenges: [
+      "Implementar autenticação completa (login/registro) usando apenas API Routes do Next.js, sem backend separado — JWT gerado e validado no próprio servidor Next",
+      "Gerenciar o estado global do usuário autenticado com Context API e manter a sessão entre navegações sem uso de bibliotecas externas",
+      "Otimizar as requisições à PokéAPI com paginação eficiente, evitando buscar dados desnecessários ao navegar entre páginas",
+    ],
+    learnings: [
+      "Next.js App Router: diferenças entre Server Components e Client Components e quando usar cada um",
+      "API Routes como mini-backend integrado — criação de endpoints de auth sem precisar de um servidor separado",
+      "Tailwind CSS 4 com animações customizadas via globals.css para transições de página e loading states",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "JWT", "PokéAPI"],
+    img: "/src/projects/Logo_Pokemon.jpeg",
+    favicon: "/src/icons/favicon.ico",
+    featured: true,
+    complexity: "complex",
+  },
+  {
+    name: "Sistema Pizzaria",
+    slug: "sistema-pizzaria",
+    desc: "Sistema fullstack de gerenciamento de pedidos para pizzaria — entrega, retirada e mesa, impressão térmica automática e fechamento de caixa diário.",
+    longDesc:
+      "Aplicação fullstack para uso local, empacotada para rodar diretamente no computador da pizzaria sem necessidade de internet. Backend Node.js/Express com SQLite via Prisma, tempo real com Socket.IO e impressão térmica automática (TCP/IP e compartilhamento Windows). Suporta pedidos de entrega, retirada e mesa; cardápio com pizzas meio a meio em 4 tamanhos; cadastro de clientes por telefone com histórico de endereços; fechamento de caixa diário com relatório por tipo de pedido e forma de pagamento; e autenticação JWT com proteção de rotas.",
+    challenges: [
+      "Implementar impressão térmica automática para duas impressoras (cozinha e caixa) via TCP/IP e compartilhamento Windows, sem dependências de nuvem",
+      "Sincronizar o status dos pedidos em tempo real entre múltiplos dispositivos (caixa, garçom, cozinha) na mesma rede local via Socket.IO",
+      "Empacotar toda a aplicação (frontend + backend + banco SQLite) para instalação simples no computador da pizzaria, sem Docker ou internet",
+    ],
+    learnings: [
+      "Integração com impressoras térmicas via node-thermal-printer: diferenças entre TCP/IP direto e compartilhamento Windows",
+      "Arquitetura offline-first com SQLite — modelagem de pedidos com itens compostos (meio a meio) e controle de sequencial diário",
+      "Uso de Socket.IO para broadcast seletivo de eventos por sala (cozinha vs. caixa) sem polling",
+    ],
+    tech: ["React", "TypeScript", "Node.js", "Express", "SQLite", "Prisma", "Socket.IO", "JWT", "Swagger"],
+    img: "/src/projects/logo_Pizzaria.jpeg",
+    favicon: "/src/icons/favicon.ico",
+    featured: true,
+    complexity: "complex",
+  },
+  {
     href: "https://portfolio-end-theta.vercel.app/",
     linkPreview: "portfolio-end-theta.vercel.app",
     name: "Portfolio — Michelangelo Costa",
