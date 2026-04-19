@@ -28,6 +28,14 @@ import {
 
 export const arrWorks: Work[] = [
   {
+    company: "LACAM – Laboratório de Contas Regionais da Amazônia",
+    role: "Full Stack Developer",
+    duration: "abr de 2026 - Presente",
+    logo: "/src/works/Logo_LACAM.jpg",
+    about:
+      "Laboratório vinculado ao IEDAR/UNIFESSPA focado na construção de instrumentos de contabilidade social e regional para o Estado do Pará. Atuo no desenvolvimento full stack, sistematização de bases de dados socioeconômicas (IBGE, ANM, ANTT) para construção da TRUR-b do Pará, tratamento e limpeza de dados, suporte técnico em TI à equipe interdisciplinar de pesquisa econômica regional e contribuição para geração de instrumentos de política pública para a Amazônia.",
+  },
+  {
     company: "PET-Saúde: Inovação e Saúde Digital no SUS",
     role: "Full Stack Developer",
     duration: "2025 - Presente",
