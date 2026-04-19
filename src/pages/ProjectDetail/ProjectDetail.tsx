@@ -92,16 +92,18 @@ const ProjectDetail = () => {
                 GitHub (API)
               </a>
             )}
-            <a
-              href={project.href}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground
-                hover:opacity-90 transition-opacity text-sm font-medium"
-            >
-              <ExternalLinkIcon className="size-4" />
-              {project.complexity === "complex" ? "Ver projeto" : "Demo ao vivo"}
-            </a>
+            {project.href && (
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground
+                  hover:opacity-90 transition-opacity text-sm font-medium"
+              >
+                <ExternalLinkIcon className="size-4" />
+                {project.complexity === "complex" ? "Ver projeto" : "Demo ao vivo"}
+              </a>
+            )}
           </div>
         </div>
       </motion.div>
@@ -112,12 +114,12 @@ const ProjectDetail = () => {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="rounded-xl overflow-hidden border border-border mb-8 aspect-video bg-muted"
+          className="rounded-xl overflow-hidden border border-border mb-8"
         >
           <img
             src={project.img}
             alt={project.name}
-            className="w-full h-full object-cover"
+            className="w-full block"
           />
         </motion.div>
       )}
