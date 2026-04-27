@@ -54,6 +54,30 @@ export const arrProjects: Project[] = [
     complexity: "complex",
   },
   {
+    name: "Fashion Record",
+    slug: "fashion-record",
+    desc: "Plataforma fullstack multi-tenant para catálogo de moda com busca semântica por IA — encontre produtos por texto ou imagem similar usando o modelo CLIP.",
+    longDesc:
+      "Plataforma para lojistas gerenciarem catálogo de moda com busca por inteligência artificial. O lojista faz upload de fotos, recorta as peças (manual ou assistido) e o sistema processa as imagens com o modelo CLIP (ViT-B/32), gerando embeddings vetoriais indexados no Qdrant. A busca aceita texto ('vestido vermelho longo') ou imagem similar, retornando produtos ranqueados por score de similaridade de cosseno. A arquitetura é distribuída em 3 microsserviços independentes: ingestão, ML core e API de busca. Redis gerencia sessões de busca com TTL de 1h para evitar repetições de resultado.",
+    challenges: [
+      "Busca semântica multimodal com CLIP (ViT-B/32) — mesmo espaço vetorial para texto e imagem, sem necessidade de palavras-chave exatas",
+      "Pipeline de processamento assíncrono — upload via MinIO, geração de embedding e indexação no Qdrant sem bloquear o fluxo do usuário",
+      "Gerenciamento de sessão de busca com Redis Sets (TTL 1h) para garantir que o mesmo produto não apareça duas vezes em buscas consecutivas",
+      "Crop de imagens funcional em mobile com react-image-crop em touch, enviando o recorte como multipart/form-data junto à imagem original",
+    ],
+    learnings: [
+      "Como embeddings CLIP funcionam — por que o mesmo modelo representa texto e imagem no mesmo espaço vetorial",
+      "Banco de dados vetorial com Qdrant — indexação por similaridade de cosseno e filtragem por metadados (tenant_id)",
+      "Arquitetura de microsserviços com responsabilidades separadas: ingestão, ML core e API de busca",
+      "Design de APIs multipart para upload simultâneo de imagem original e recorte, com controle de processing_status",
+    ],
+    tech: ["React", "TypeScript", "Vite", "Python", "FastAPI", "CLIP", "Qdrant", "Redis", "MinIO", "JWT"],
+    img: "/src/projects/portal_fashion.jpeg",
+    favicon: "/src/icons/favicon.ico",
+    featured: true,
+    complexity: "complex",
+  },
+  {
     href: "https://pokeexplorer-siapesq.vercel.app/",
     linkPreview: "pokeexplorer-siapesq.vercel.app",
     name: "PokéExplorer",
