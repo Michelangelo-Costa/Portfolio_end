@@ -2,6 +2,12 @@ import type { Certificate } from "@/types";
 
 export const arrCertificates: Certificate[] = [
   {
+    href: "/src/certs/MICHELANGELO_COSTA_CAO_T1_AIA (1).pdf",
+    course: "Agentes de Inteligência Artificial",
+    teacher: "AKCIT / UFG — 40h",
+    tags: ["IA", "Agentes"],
+  },
+  {
     href: "/src/certs/monitoria-programacao.pdf",
     course:
       "Relato de Experiência em Práticas de Monitoria no Apoio ao Ensino de Programação II",
