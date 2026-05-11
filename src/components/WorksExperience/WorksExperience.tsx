@@ -6,6 +6,28 @@ import type { Work } from "@/types";
 
 function WorksExperience() {
   const [selected, setSelected] = React.useState<Work | null>(null);
+  const dialogRef = React.useRef<HTMLDivElement>(null);
+  const modalTitleId = React.useId();
+
+  React.useEffect(() => {
+    if (!selected) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelected(null);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleKeyDown);
+    window.setTimeout(() => dialogRef.current?.focus(), 0);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selected]);
 
   return (
     <section className="py-8">
@@ -18,8 +40,9 @@ function WorksExperience() {
 
         <div className="space-y-6">
           {arrWorks.map((work, index) => (
-            <motion.div
+            <motion.button
               key={work.company}
+              type="button"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -28,8 +51,9 @@ function WorksExperience() {
                 delay: index * 0.1,
                 ease: "easeOut",
               }}
-              className="relative pl-12 cursor-pointer group"
+              className="relative block w-full pl-12 text-left cursor-pointer group"
               onClick={() => setSelected(work)}
+              aria-label={`Ver detalhes da experiência em ${work.company}`}
             >
               {/* Dot na timeline */}
               <div
@@ -45,6 +69,8 @@ function WorksExperience() {
                   <img
                     src={work.logo}
                     alt={work.company}
+                    loading="lazy"
+                    decoding="async"
                     className="size-12 rounded-lg object-cover border border-border flex-shrink-0"
                   />
                   <div className="flex-1 min-w-0">
@@ -62,7 +88,7 @@ function WorksExperience() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.button>
           ))}
         </div>
       </div>
@@ -72,6 +98,9 @@ function WorksExperience() {
         {selected && (
           <motion.div
             className="fixed inset-0 z-50 flex items-center justify-center px-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={modalTitleId}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -80,12 +109,15 @@ function WorksExperience() {
             <motion.div
               className="absolute inset-0 bg-black/40 backdrop-blur-sm"
               onClick={() => setSelected(null)}
+              aria-hidden="true"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             />
 
             <motion.div
+              ref={dialogRef}
+              tabIndex={-1}
               className="relative z-10 w-full max-w-lg rounded-2xl border border-border bg-card p-8 shadow-2xl"
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -105,10 +137,15 @@ function WorksExperience() {
                 <img
                   src={selected.logo}
                   alt={selected.company}
+                  loading="lazy"
+                  decoding="async"
                   className="size-16 object-cover rounded-xl border border-border"
                 />
                 <div>
-                  <h3 className="text-lg font-bold text-foreground">
+                  <h3
+                    id={modalTitleId}
+                    className="text-lg font-bold text-foreground"
+                  >
                     {selected.company}
                   </h3>
                   <p className="text-sm text-muted-foreground font-medium">
