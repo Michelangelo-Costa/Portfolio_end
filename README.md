@@ -62,6 +62,11 @@ npm run dev
 
 Acesse `http://localhost:5173`.
 
+Para ativar o envio direto do formulário de contato, copie `.env.example` para
+`.env.local` e preencha `VITE_FORMSPREE_ENDPOINT` com o endpoint do seu form no
+Formspree. Sem essa variável, o formulário abre o cliente de e-mail como
+fallback.
+
 ## Scripts
 
 | Comando           | Descrição                   |
