@@ -9,15 +9,18 @@ function Skills() {
       <h2 className="text-2xl font-bold text-foreground mb-6">
         Competências Técnicas
       </h2>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {skillCategories.map((category) => (
           <div key={category.label}>
             <h3 className="text-xs font-semibold text-primary uppercase tracking-widest mb-3">
               {category.label}
             </h3>
+
             <div className="flex flex-wrap gap-2">
               {category.skills.map((skill) => {
                 const idx = globalIndex++;
+
                 return (
                   <motion.div
                     key={skill.name}
