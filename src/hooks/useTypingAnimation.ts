@@ -5,9 +5,27 @@ const useTypingAnimation = (texts: string[], speed = 80, pause = 1800) => {
   const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    const current = texts[textIndex];
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+
+    updatePreference();
+    mediaQuery.addEventListener("change", updatePreference);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updatePreference);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setDisplayed(texts[0] ?? "");
+      return;
+    }
+
+    const current = texts[textIndex] ?? "";
 
     if (!deleting && charIndex < current.length) {
       const timeout = setTimeout(() => {
@@ -32,9 +50,9 @@ const useTypingAnimation = (texts: string[], speed = 80, pause = 1800) => {
 
     if (deleting && charIndex === 0) {
       setDeleting(false);
-      setTextIndex((i) => (i + 1) % texts.length);
+      setTextIndex((i) => (texts.length > 0 ? (i + 1) % texts.length : 0));
     }
-  }, [charIndex, deleting, textIndex, texts, speed, pause]);
+  }, [charIndex, deleting, textIndex, texts, speed, pause, prefersReducedMotion]);
 
   return displayed;
 };
