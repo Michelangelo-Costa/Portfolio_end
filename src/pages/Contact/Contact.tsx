@@ -3,11 +3,8 @@ import PageTitle from "@/components/PageTitle/PageTitle";
 import { GithubIcon, LinkedinIcon, MailIcon, PhoneIcon } from "@/lib/icons";
 import { motion } from "motion/react";
 
-// CONFIGURAÇÃO FORMSPREE
-// 1. Crie uma conta gratuita em https://formspree.io
-// 2. Crie um novo form e copie o ID (ex: "xpwzrqej")
-// 3. Substitua o valor abaixo pelo seu ID
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/SEU_FORM_ID";
+const CONTACT_EMAIL = "michelangeloed@gmail.com";
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT?.trim();
 
 const socialLinks = [
   {
@@ -24,19 +21,19 @@ const socialLinks = [
   },
   {
     label: "E-mail",
-    value: "michelangeloed@gmail.com",
-    href: "mailto:michelangeloed@gmail.com",
+    value: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
     icon: MailIcon,
   },
   {
     label: "Telefone",
     value: "(99) 98466-6698",
-    href: "",
+    href: "tel:+5599984666698",
     icon: PhoneIcon,
   },
 ];
 
-type FormStatus = "idle" | "loading" | "success" | "error";
+type FormStatus = "idle" | "loading" | "success" | "mail-fallback" | "error";
 
 const Contact = () => {
   const [nome, setNome] = useState("");
@@ -44,8 +41,27 @@ const Contact = () => {
   const [mensagem, setMensagem] = useState("");
   const [status, setStatus] = useState<FormStatus>("idle");
 
+  const createMailtoHref = () => {
+    const subject = encodeURIComponent(`Contato pelo portfolio - ${nome}`);
+    const body = encodeURIComponent(
+      `Nome: ${nome}\nE-mail: ${email}\n\nMensagem:\n${mensagem}`
+    );
+
+    return `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!FORMSPREE_ENDPOINT) {
+      window.location.href = createMailtoHref();
+      setStatus("mail-fallback");
+      setNome("");
+      setEmail("");
+      setMensagem("");
+      return;
+    }
+
     setStatus("loading");
 
     try {
@@ -95,18 +111,13 @@ const Contact = () => {
           <h2 className="text-lg font-semibold mb-4">Redes sociais</h2>
           <div className="space-y-3">
             {socialLinks.map((link, index) => {
-              const Wrapper = link.href ? motion.a : motion.div;
-              const wrapperProps = link.href
-                ? {
-                    href: link.href,
-                    target: link.href.startsWith("mailto") ? undefined : "_blank",
-                    rel: "noreferrer noopener",
-                  }
-                : {};
+              const isExternal = link.href.startsWith("http");
               return (
-                <Wrapper
+                <motion.a
                   key={link.label}
-                  {...wrapperProps}
+                  href={link.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noreferrer noopener" : undefined}
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.15 + index * 0.07 }}
@@ -124,7 +135,7 @@ const Contact = () => {
                       {link.value}
                     </p>
                   </div>
-                </Wrapper>
+                </motion.a>
               );
             })}
           </div>
@@ -138,21 +149,32 @@ const Contact = () => {
         >
           <h2 className="text-lg font-semibold mb-4">Enviar mensagem</h2>
 
-          {status === "success" ? (
+          {status === "success" || status === "mail-fallback" ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
+              role="status"
+              aria-live="polite"
               className="flex flex-col items-center justify-center gap-3 p-8 rounded-xl border border-green-500/30
                 bg-green-500/5 text-center"
             >
               <div className="size-12 rounded-full bg-green-500/10 flex items-center justify-center">
-                <span className="text-green-500 text-2xl">✓</span>
+                <span className="text-green-500 text-2xl" aria-hidden="true">
+                  ✓
+                </span>
               </div>
-              <p className="font-semibold text-foreground">Mensagem enviada!</p>
+              <p className="font-semibold text-foreground">
+                {status === "success"
+                  ? "Mensagem enviada!"
+                  : "Mensagem pronta no seu e-mail"}
+              </p>
               <p className="text-sm text-muted-foreground">
-                Obrigado pelo contato. Responderei em breve.
+                {status === "success"
+                  ? "Obrigado pelo contato. Responderei em breve."
+                  : "Como o envio direto ainda não está configurado, abri seu aplicativo de e-mail com a mensagem preenchida."}
               </p>
               <button
+                type="button"
                 onClick={() => setStatus("idle")}
                 className="mt-2 text-sm text-primary hover:underline"
               >
@@ -162,12 +184,18 @@ const Contact = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
+                <label
+                  htmlFor="contact-name"
+                  className="block text-sm font-medium text-foreground mb-1.5"
+                >
                   Nome
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
+                  name="nome"
                   required
+                  autoComplete="name"
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
                   placeholder="Seu nome"
@@ -179,12 +207,18 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
+                <label
+                  htmlFor="contact-email"
+                  className="block text-sm font-medium text-foreground mb-1.5"
+                >
                   E-mail
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
+                  name="email"
                   required
+                  autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="seu@email.com"
@@ -196,10 +230,15 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
+                <label
+                  htmlFor="contact-message"
+                  className="block text-sm font-medium text-foreground mb-1.5"
+                >
                   Mensagem
                 </label>
                 <textarea
+                  id="contact-message"
+                  name="mensagem"
                   required
                   rows={5}
                   value={mensagem}
@@ -213,7 +252,7 @@ const Contact = () => {
               </div>
 
               {status === "error" && (
-                <p className="text-sm text-red-500">
+                <p className="text-sm text-red-500" role="alert">
                   Erro ao enviar mensagem. Tente novamente ou use o e-mail diretamente.
                 </p>
               )}
