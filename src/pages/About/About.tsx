@@ -37,6 +37,7 @@ const About = () => {
               <img
                 src="/src/icons/Foto_Perfil.jpg"
                 alt="Michelangelo Costa"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -160,6 +161,8 @@ const About = () => {
                 <img
                   src={edu.logo}
                   alt={edu.institution}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
