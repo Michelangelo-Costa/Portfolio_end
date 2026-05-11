@@ -119,6 +119,7 @@ const ProjectDetail = () => {
           <img
             src={project.img}
             alt={project.name}
+            decoding="async"
             className="w-full block"
           />
         </motion.div>
@@ -201,6 +202,7 @@ const ProjectDetail = () => {
         className="mt-12 pt-8 border-t border-border"
       >
         <button
+          type="button"
           onClick={() => navigate(-1)}
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
         >
