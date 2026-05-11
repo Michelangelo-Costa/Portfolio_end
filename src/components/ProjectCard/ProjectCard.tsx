@@ -36,6 +36,8 @@ const ProjectCard = ({
           <motion.img
             src={img}
             alt={name}
+            loading="lazy"
+            decoding="async"
             onLoad={() => setImageLoaded(true)}
             variants={{ idle: { scale: 1 }, hovered: { scale: 1.06 } }}
             transition={imgSpring}
