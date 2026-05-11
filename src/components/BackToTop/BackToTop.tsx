@@ -10,6 +10,17 @@ const BackToTop = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToTop = () => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+  };
+
   return (
     <AnimatePresence>
       {visible && (
@@ -18,7 +29,7 @@ const BackToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.2 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={scrollToTop}
           className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-primary text-primary-foreground
             shadow-lg hover:opacity-90 transition-opacity cursor-pointer"
           aria-label="Voltar ao topo"
@@ -29,6 +40,7 @@ const BackToTop = () => {
             viewBox="0 0 24 24"
             strokeWidth={2.5}
             stroke="currentColor"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
