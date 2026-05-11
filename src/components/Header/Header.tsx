@@ -64,6 +64,8 @@ const Header = () => {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="p-2 rounded-lg hover:bg-muted transition-colors cursor-pointer"
             aria-label="Menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileOpen ? (
               <CloseIcon className="w-5 h-5 text-foreground" />
@@ -74,6 +76,7 @@ const Header = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={2}
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -88,7 +91,10 @@ const Header = () => {
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-border bg-background">
+        <div
+          id="mobile-navigation"
+          className="md:hidden border-t border-border bg-background"
+        >
           <nav className="flex flex-col px-4 py-3 gap-1">
             {navItems.map((item) => (
               <NavLink
