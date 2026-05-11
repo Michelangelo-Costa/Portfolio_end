@@ -48,11 +48,15 @@ const Projects = () => {
         </p>
 
         {/* Filter tabs */}
-        <div className="flex gap-2 p-1 bg-muted rounded-xl w-fit">
+        <div
+          className="flex gap-2 p-1 bg-muted rounded-xl w-fit"
+          aria-label="Filtrar projetos por complexidade"
+        >
           {filters.map((filter) => (
             <button
               key={filter.value}
               onClick={() => setActiveFilter(filter.value)}
+              aria-pressed={activeFilter === filter.value}
               className={`px-5 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer ${
                 activeFilter === filter.value
                   ? "bg-primary text-primary-foreground shadow-sm"
@@ -94,6 +98,8 @@ const Projects = () => {
                 <motion.img
                   src={heroProject.img}
                   alt={heroProject.name}
+                  loading="eager"
+                  decoding="async"
                   variants={{ idle: { scale: 1 }, hovered: { scale: 1.06 } }}
                   transition={imgSpring}
                   className="w-full h-full object-cover"
