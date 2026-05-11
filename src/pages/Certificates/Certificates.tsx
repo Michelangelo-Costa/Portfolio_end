@@ -47,11 +47,15 @@ const Certificates = () => {
         </div>
 
         {/* Filter tabs */}
-        <div className="flex gap-2 flex-wrap p-1 bg-muted rounded-xl w-fit">
+        <div
+          className="flex gap-2 flex-wrap p-1 bg-muted rounded-xl w-fit"
+          aria-label="Filtrar certificados por assunto"
+        >
           {ALL_TAGS.map((tag) => (
             <button
               key={tag}
               onClick={() => setActiveTag(tag)}
+              aria-pressed={activeTag === tag}
               className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer ${
                 activeTag === tag
                   ? "bg-primary text-primary-foreground shadow-sm"
