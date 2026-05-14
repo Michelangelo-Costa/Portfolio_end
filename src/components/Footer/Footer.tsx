@@ -42,7 +42,7 @@ const Footer = () => {
                 Certificados
               </Link>
               <a
-                href="/Curriculo_Michelangelo__ (2).pdf"
+                href="/Curriculo_Michelangelo__ (3).pdf"
                 download="Curriculo_Michelangelo_Costa.pdf"
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >

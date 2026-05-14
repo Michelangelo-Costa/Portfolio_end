@@ -78,7 +78,7 @@ const About = () => {
           <a
             className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground font-medium rounded-lg
               hover:opacity-90 transition-opacity text-sm"
-            href="/Curriculo_Michelangelo__ (2).pdf"
+            href="/Curriculo_Michelangelo__ (3).pdf"
             download="Curriculo_Michelangelo_Costa.pdf"
           >
             Baixar currículo
