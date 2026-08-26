@@ -63,16 +63,18 @@ const About = () => {
           </div>
 
           <p className="text-muted-foreground text-base leading-relaxed w-full">
-            Sou estudante de Sistemas de Informação na UNIFESSPA e desenvolvedor
-            apaixonado por transformar ideias em soluções reais. Minha jornada
-            começou no suporte técnico e evoluiu naturalmente para o
-            desenvolvimento de software, onde hoje construo aplicações web
-            modernas e funcionais. Atualmente, participo do projeto PET-Saúde
-            Digital, contribuindo com sistemas voltados à saúde pública e
-            impacto social. Tenho grande interesse em desenvolvimento full stack
-            e em criar soluções que unam tecnologia, usabilidade e propósito.
-            Estou sempre buscando evoluir, aprender e colaborar em projetos que
-            gerem valor real.
+            Desenvolvedor Full Stack com foco em aplicações de impacto real.
+            Atuo em dois projetos na UNIFESSPA: no PET-Saúde Digital, em
+            parceria com o Ministério da Saúde, desenvolvendo sistemas voltados
+            à saúde pública; e no LACAM, criando dashboards e ferramentas de
+            transparência de dados socioeconômicos para o Estado do Pará.
+            Trabalho com React, Node.js, TypeScript, Python e PostgreSQL, do
+            front ao back-end. Tenho experiência aplicada em IA e Machine
+            Learning, incluindo busca semântica com CLIP, banco vetorial Qdrant
+            e agentes de IA com LangChain. Minha trajetória começou no suporte
+            técnico, experiência que moldou minha forma de construir software
+            centrado em pessoas. Busco oportunidades remotas em times que
+            valorizam código limpo e tecnologia com propósito.
           </p>
 
           <a
