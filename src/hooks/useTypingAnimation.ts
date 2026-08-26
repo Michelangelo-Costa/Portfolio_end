@@ -1,58 +1,37 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const useTypingAnimation = (texts: string[], speed = 80, pause = 1800) => {
   const [displayed, setDisplayed] = useState("");
-  const [textIndex, setTextIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [deleting, setDeleting] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const ref = useRef({ textIndex: 0, charIndex: 0, deleting: false });
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+    let timer: ReturnType<typeof setTimeout>;
 
-    updatePreference();
-    mediaQuery.addEventListener("change", updatePreference);
+    const tick = () => {
+      const s = ref.current;
+      const current = texts[s.textIndex] ?? "";
 
-    return () => {
-      mediaQuery.removeEventListener("change", updatePreference);
+      if (!s.deleting && s.charIndex < current.length) {
+        s.charIndex++;
+        setDisplayed(current.slice(0, s.charIndex));
+        timer = setTimeout(tick, speed);
+      } else if (!s.deleting && s.charIndex === current.length) {
+        s.deleting = true;
+        timer = setTimeout(tick, pause);
+      } else if (s.deleting && s.charIndex > 0) {
+        s.charIndex--;
+        setDisplayed(current.slice(0, s.charIndex));
+        timer = setTimeout(tick, speed / 2);
+      } else if (s.deleting && s.charIndex === 0) {
+        s.deleting = false;
+        s.textIndex = (s.textIndex + 1) % texts.length;
+        timer = setTimeout(tick, speed / 2);
+      }
     };
-  }, []);
 
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      setDisplayed(texts[0] ?? "");
-      return;
-    }
-
-    const current = texts[textIndex] ?? "";
-
-    if (!deleting && charIndex < current.length) {
-      const timeout = setTimeout(() => {
-        setDisplayed(current.slice(0, charIndex + 1));
-        setCharIndex((c) => c + 1);
-      }, speed);
-      return () => clearTimeout(timeout);
-    }
-
-    if (!deleting && charIndex === current.length) {
-      const timeout = setTimeout(() => setDeleting(true), pause);
-      return () => clearTimeout(timeout);
-    }
-
-    if (deleting && charIndex > 0) {
-      const timeout = setTimeout(() => {
-        setDisplayed(current.slice(0, charIndex - 1));
-        setCharIndex((c) => c - 1);
-      }, speed / 2);
-      return () => clearTimeout(timeout);
-    }
-
-    if (deleting && charIndex === 0) {
-      setDeleting(false);
-      setTextIndex((i) => (texts.length > 0 ? (i + 1) % texts.length : 0));
-    }
-  }, [charIndex, deleting, textIndex, texts, speed, pause, prefersReducedMotion]);
+    tick();
+    return () => clearTimeout(timer);
+  }, [texts, speed, pause]);
 
   return displayed;
 };
